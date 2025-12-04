@@ -1,11 +1,20 @@
 import './App.css'
+import { About } from './components/About'
+import { Contact } from './components/Contact'
+import { Gallery } from './components/Gallery'
+import { Header } from './components/Header'
+import { Hero } from './components/Hero'
+import { Testimonials } from './components/Testimonials'
 
 function App() {
-
-
   return (
     <>
-      <h1 className='text-green-500 text-6xl'>Hello World</h1>
+      <Header />
+      <Hero/>
+      <About/>
+      <Gallery/>
+      <Testimonials/>
+      <Contact/>
     </>
   )
 }

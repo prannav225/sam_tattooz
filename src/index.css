@@ -1,1 +1,90 @@
 @import "tailwindcss";
+
+/* Brand Colors */
+:root {
+  --color-bg: #292827;
+  --color-text: #f4f4f4;
+  --color-accent: #F1592A;
+  --font-heading: "Instrument Serif", serif;
+  --font-body: "Google Sans Flex", sans-serif;
+  
+}
+
+/* Global Font Setup */
+html,
+body,
+* {
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+body {
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0;
+  line-height: 1.6;
+}
+
+/* Instrument Serif for Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+/* Heading sizes */
+h1 {
+  @apply text-4xl md:text-6xl;
+}
+
+h2 {
+  @apply text-3xl md:text-5xl;
+}
+
+h3 {
+  @apply text-2xl md:text-4xl;
+}
+
+h4 {
+  @apply text-xl md:text-3xl;
+}
+
+h5 {
+  @apply text-lg md:text-2xl;
+}
+
+h6 {
+  @apply text-base md:text-xl;
+}
+
+/* Paragraph text */
+p {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  @apply text-base md:text-lg;
+}
+
+/* Apply color scheme to elements */
+button,
+a {
+  transition: all 0.3s ease;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+a {
+  font-family: var(--font-body);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
