@@ -16,19 +16,18 @@ export function Header() {
     { label: 'About', href: '#about' },
     { label: 'Works', href: '#works' },
     { label: 'Testimonials', href: '#testimonials' },
-    // { label: 'Gallery', href: '#gallery' },
   ];
 
   return (
     <header className="sticky top-0 z-50 shadow-md" style={{ backgroundColor: '#292827' }}>
       <div className="flex items-center justify-between px-4 md:px-8 py-4 max-w-7xl mx-auto">
         {/* Logo Section */}
-        <div className="flex items-center gap-2 text-lg md:text-xl hover:opacity-80 transition-opacity" style={{ fontFamily: '"Instrument Serif", serif' }}>
+        <a href="/" className="flex items-center gap-2 text-lg md:text-xl hover:opacity-80 transition-opacity" style={{ fontFamily: '"Instrument Serif", serif' }}>
           <img src="/logo.png" alt="Sam Tattooz" className="w-8 h-8 md:w-10 md:h-10" />
-          <span className="hidden sm:inline text-2xl" style={{ color: '#f4f4f4', fontFamily: '"Instrument Serif", serif' }}>
+          <span className="text-xl md:text-2xl" style={{ color: '#f4f4f4', fontFamily: '"Instrument Serif", serif' }}>
             Sam Tattooz
           </span>
-        </div>
+        </a>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -85,15 +84,30 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          {/* Contact Button - Mobile Only */}
+          <button
+            className="md:hidden px-4 py-2 text-white rounded-3xl transition-all duration-300 active:scale-95 whitespace-nowrap mt-4"
+            style={{ backgroundColor: '#F1592A' }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.9')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              closeMenu();
+            }}
+          >
+            Contact Us
+          </button>
         </nav>
 
-        {/* Contact Button */}
+        {/* Contact Button - Desktop Only */}
         <button
-          className="px-4 md:px-6 py-2 md:py-2.5 text-white rounded-3xl transition-all duration-300 active:scale-95 whitespace-nowrap ml-4 md:ml-0"
+          className="hidden md:block px-6 py-2.5 text-white rounded-3xl transition-all duration-300 active:scale-95 whitespace-nowrap"
           style={{ backgroundColor: '#F1592A' }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.9')}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-          onClick={closeMenu}
+          onClick={() => {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
           Contact Us
         </button>
