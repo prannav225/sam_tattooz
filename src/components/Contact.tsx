@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,13 @@ export function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  // Initialize email.js
+  useEffect(() => {
+    emailjs.init('YOUR_PUBLIC_KEY_HERE');
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -20,13 +28,39 @@ export function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', concept: '', placement: '', size: '' });
-    setTimeout(() => setSubmitted(false), 3000);
+    setLoading(true);
+    setError('');
+
+    try {
+      // Send email using email.js
+      await emailjs.send(
+        'service_ty5v2vj',
+        'template_xxkzye8',
+        {
+          to_email: 'satwinderamloh4@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone || 'Not provided',
+          concept: formData.concept,
+          placement: formData.placement,
+          size: formData.size,
+          reply_to: formData.email,
+        },
+        'rWgfx85P7wMrGBde0'
+      );
+
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', concept: '', placement: '', size: '' });
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to send message. Please try again.';
+      setError(errorMessage);
+      console.error('Email send error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -136,6 +170,13 @@ export function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Error Message */}
+                {error && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-700 text-sm">{error}</p>
+                  </div>
+                )}
+
                 {/* Name & Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Name */}
@@ -246,12 +287,13 @@ export function Contact() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 active:scale-95"
+                  disabled={loading}
+                  className="w-full px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
                   style={{ backgroundColor: '#F1592A' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.9')}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+                  onMouseEnter={(e) => !loading && (e.currentTarget.style.opacity = '0.9')}
+                  onMouseLeave={(e) => !loading && (e.currentTarget.style.opacity = '1')}
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}

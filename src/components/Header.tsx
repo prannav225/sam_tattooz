@@ -23,8 +23,8 @@ export function Header() {
       <div className="flex items-center justify-between px-4 md:px-8 py-4 max-w-7xl mx-auto">
         {/* Logo Section */}
         <a href="/" className="flex items-center gap-2 text-lg md:text-xl hover:opacity-80 transition-opacity" style={{ fontFamily: '"Instrument Serif", serif' }}>
-          <img src="/logo.png" alt="Sam Tattooz" className="w-8 h-8 md:w-10 md:h-10" />
-          <span className="text-xl md:text-2xl" style={{ color: '#f4f4f4', fontFamily: '"Instrument Serif", serif' }}>
+          <img src="/logo.png" alt="Sam Tattooz" className="w-20 h-20 md:w-14 md:h-14" />
+          <span className="text-4xl md:text-6xl" style={{ color: '#f4f4f4', fontFamily: '"Instrument Serif", serif' }}>
             Sam Tattooz
           </span>
         </a>
@@ -59,7 +59,7 @@ export function Header() {
         <nav
           className={`${
             isMenuOpen
-              ? 'fixed inset-0 top-16 flex flex-col gap-4 p-6 md:static md:flex md:gap-8 md:p-0'
+              ? 'fixed inset-0 top-24 flex flex-col gap-4 p-6 md:static md:flex md:gap-8 md:p-0'
               : 'hidden md:flex items-center gap-8'
           } transition-all duration-300`}
           style={isMenuOpen ? { backgroundColor: '#292827' } : {}}

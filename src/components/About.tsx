@@ -29,14 +29,14 @@ export function About() {
             </p>
             <p className="text-lg md:text-xl leading-relaxed mb-4">
               I don’t just copy images; I collaborate with my clients to create custom pieces that flow with the body’s natural anatomy.
-              Every tattoo tells a story, and I'm here to help you tell yours. Whether you're looking for a small meaningful piece 
+              Every tattoo tells a story, and I'm here to help you create yours. Whether you're looking for a small meaningful piece 
               or an elaborate design, I bring creativity, precision, and dedication to every project.
             </p>
             <p className="text-lg md:text-xl leading-relaxed">
               My approach combines technical expertise with artistic vision, ensuring that your tattoo is not just beautiful, 
               but also a true reflection of your personality and values.
             </p>
-            <p className="text-lg md:text-xl leading-relaxed">My Philosophy: A tattoo is a collaboration. I believe in creating a safe, inclusive, and relaxed environment where you feel heard. Whether it’s your first tattoo or your fiftieth, I approach every session with the same level of focus and respect.</p>
+            <p className="text-lg md:text-xl leading-relaxed">My Philosophy: A tattoo is a collaboration. I believe in creating a safe, hygiene, inclusive, and relaxed environment where you feel relaxed and heard. Whether it’s your first tattoo or your fiftieth, I approach every session with the same level of focus and respect.</p>
           </div>
         </div>
       </div>
