@@ -67,11 +67,11 @@ export function Testimonials() {
   };
 
   return (
-    <section className="w-full py-16 md:py-24 px-4 md:px-8">
+    <section className="w-full py-16 md:py-24 px-4 md:px-8" id="testimonials">
       <div className="max-w-7xl mx-auto">
         {/* Centered Heading */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl">
             Testimonials
           </h2>
         </div>
