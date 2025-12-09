@@ -80,6 +80,11 @@ button {
   font-family: var(--font-body);
 }
 
+/* Accent button for CTAs */
+.btn-accent {
+  @apply bg-[#F1592A];
+}
+
 a {
   font-family: var(--font-body);
 }
