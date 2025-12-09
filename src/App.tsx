@@ -1,7 +1,7 @@
 import './App.css'
 import { About } from './components/About'
 import { Contact } from './components/Contact'
-import { Gallery } from './components/Gallery'
+import { Works } from './components/Works'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Testimonials } from './components/Testimonials'
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Hero/>
       <About/>
-      <Gallery/>
+      <Works/>
       <Testimonials/>
       <Contact/>
     </>
