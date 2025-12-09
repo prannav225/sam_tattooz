@@ -5,7 +5,7 @@ export function Hero() {
       <img
         src="./banner_img.webp"
         alt="Hero background"
-        className="absolute top-0 left-0 w-full h-fit object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover"
       />
 
       {/* Overlay - Semi-transparent black */}
