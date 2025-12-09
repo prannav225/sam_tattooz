@@ -1,4 +1,4 @@
-export function Gallery() {
+export function Works() {
   const galleryImages = [
     { id: 1, src: '/gallery/1.webp', alt: 'Tattoo design 1' },
     { id: 2, src: '/gallery/2.webp', alt: 'Tattoo design 2' },
@@ -31,13 +31,14 @@ export function Gallery() {
   ];
 
   return (
-    <section className="w-full py-16 md:py-24 px-4 md:px-8">
+    <section className="w-full py-16 md:py-24 px-4 md:px-8" id="works">
       <div className="max-w-7xl mx-auto">
         {/* Centered Heading */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-5xl md:text-6xl lg:text-7xl">
             Recent Works
           </h2>
+          <p className="text-lg md:text-xl leading-relaxed my-2">A collection of recent projects. From large-scale back pieces to delicate micro-tattoos.</p>
         </div>
 
         {/* Gallery Grid */}
