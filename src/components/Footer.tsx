@@ -11,11 +11,12 @@ export function Footer() {
             <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#D0AD87] font-semibold">
               ✦ Live Studio Archive
             </span>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl text-[#F7F5F2] mt-1" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl text-[#F7F5F2] mt-1">
               Follow the Work on Instagram
             </h3>
             <p className="text-xs sm:text-sm text-[#D9D2CB] font-light mt-1">
-              Fresh healed pieces, client progression, and studio behind-the-scenes @sam_tattooz_
+              Fresh healed pieces, client progression, and studio
+              behind-the-scenes @sam_tattooz_
             </p>
           </div>
           <a
@@ -39,7 +40,7 @@ export function Footer() {
                 alt="Sam Tattooz"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border border-[#D0AD87]/30"
               />
-              <span className="text-2xl sm:text-3xl tracking-tight text-[#F7F5F2]" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+              <span className="text-2xl sm:text-3xl tracking-tight text-[#F7F5F2] font-bold">
                 Sam Tattooz
               </span>
             </div>
@@ -47,7 +48,8 @@ export function Footer() {
               Bespoke Tattoo Atelier • Bengaluru
             </p>
             <p className="text-xs sm:text-sm text-[#A18773] max-w-sm leading-relaxed font-light">
-              Founded by Satwinder Singh. An architectural sanctuary dedicated to custom tattooing, anatomical precision, and lifelong integrity.
+              Founded by Satwinder Singh. An architectural sanctuary dedicated
+              to custom tattooing, anatomical precision, and lifelong integrity.
             </p>
           </div>
 
@@ -58,19 +60,44 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-xs uppercase tracking-wider text-[#D9D2CB]">
               <li>
-                <a href="#works" className="hover:text-[#D0AD87] transition-colors">Curated Portfolio</a>
+                <a
+                  href="#works"
+                  className="hover:text-[#D0AD87] transition-colors"
+                >
+                  Curated Portfolio
+                </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-[#D0AD87] transition-colors">Philosophy & Artist</a>
+                <a
+                  href="#about"
+                  className="hover:text-[#D0AD87] transition-colors"
+                >
+                  Philosophy & Artist
+                </a>
               </li>
               <li>
-                <a href="#studio" className="hover:text-[#D0AD87] transition-colors">The Atelier Space</a>
+                <a
+                  href="#studio"
+                  className="hover:text-[#D0AD87] transition-colors"
+                >
+                  The Atelier Space
+                </a>
               </li>
               <li>
-                <a href="#testimonials" className="hover:text-[#D0AD87] transition-colors">Collector Reviews</a>
+                <a
+                  href="#testimonials"
+                  className="hover:text-[#D0AD87] transition-colors"
+                >
+                  Collector Reviews
+                </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#D0AD87] transition-colors">Book a Consultation</a>
+                <a
+                  href="#contact"
+                  className="hover:text-[#D0AD87] transition-colors"
+                >
+                  Book a Consultation
+                </a>
               </li>
             </ul>
           </div>
@@ -87,10 +114,16 @@ export function Footer() {
               Hours: By Confirmed Appointment Only
             </p>
             <div className="pt-1 sm:pt-2 flex flex-col gap-1 text-xs text-[#D9D2CB]">
-              <a href="tel:+918872684463" className="hover:text-[#D0AD87] transition-colors">
+              <a
+                href="tel:+918872684463"
+                className="hover:text-[#D0AD87] transition-colors"
+              >
                 +91 887 268 4463
               </a>
-              <a href="mailto:satwinderamloh4@gmail.com" className="hover:text-[#D0AD87] transition-colors truncate">
+              <a
+                href="mailto:satwinderamloh4@gmail.com"
+                className="hover:text-[#D0AD87] transition-colors truncate"
+              >
                 satwinderamloh4@gmail.com
               </a>
             </div>

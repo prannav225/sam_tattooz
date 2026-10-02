@@ -53,13 +53,10 @@ export function Hero() {
               <span className="italic font-light text-[#D0AD87] tracking-normal">Built to Last.</span>
             </h1>
 
-            {/* Editorial Paragraph */}
-            <div className="max-w-xl">
-              <p className="text-sm xs:text-base sm:text-lg md:text-xl text-[#D9D2CB] font-light leading-relaxed mb-3 sm:mb-4">
-                An architectural sanctuary where tattooing is treated as permanent collaboration—combining surgical precision, anatomical flow, and quiet reverence.
-              </p>
-              <p className="text-xs sm:text-sm text-[#A18773] leading-relaxed mb-6 sm:mb-8">
-                Created by Satwinder Singh. Every piece is an original composition engineered with calibrated depth to age with timeless beauty across a lifetime.
+            {/* Editorial Lead */}
+            <div className="max-w-xl mb-6 sm:mb-8">
+              <p className="text-sm xs:text-base sm:text-lg text-[#D9D2CB] font-light leading-relaxed">
+                Bespoke tattoo art by Satwinder Singh in Bengaluru. Anatomical flow, hospital-grade precision, and custom compositions engineered to endure.
               </p>
             </div>
 
@@ -85,7 +82,7 @@ export function Hero() {
             {/* Key Studio Metrics Bar */}
             <div className="grid grid-cols-3 gap-3 xs:gap-5 sm:gap-6 pt-6 sm:pt-8 border-t border-[#A18773]/25 max-w-lg">
               <div>
-                <p className="text-2xl xs:text-3xl md:text-4xl text-[#F7F5F2]" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+                <p className="text-2xl xs:text-3xl md:text-4xl text-[#F7F5F2] font-bold tracking-tight">
                   05+
                 </p>
                 <p className="text-[9px] xs:text-[10px] uppercase tracking-widest text-[#D0AD87] mt-1 font-semibold">
@@ -97,7 +94,7 @@ export function Hero() {
               </div>
 
               <div>
-                <p className="text-2xl xs:text-3xl md:text-4xl text-[#D0AD87]" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+                <p className="text-2xl xs:text-3xl md:text-4xl text-[#D0AD87] font-bold tracking-tight">
                   100%
                 </p>
                 <p className="text-[9px] xs:text-[10px] uppercase tracking-widest text-[#D0AD87] mt-1 font-semibold">
@@ -109,7 +106,7 @@ export function Hero() {
               </div>
 
               <div>
-                <p className="text-2xl xs:text-3xl md:text-4xl text-[#F7F5F2]" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+                <p className="text-2xl xs:text-3xl md:text-4xl text-[#F7F5F2] font-bold tracking-tight">
                   Custom
                 </p>
                 <p className="text-[9px] xs:text-[10px] uppercase tracking-widest text-[#D0AD87] mt-1 font-semibold">

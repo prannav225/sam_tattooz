@@ -1,25 +1,29 @@
 @import "tailwindcss";
+@import url("https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900,201,301,401,501,701,901&f[]=gambarino@400&display=swap");
 
 @layer base {
   :root {
     /* Studio Architectural Color System */
-    --color-studio-bg: #716B66;          /* Primary concrete / warm grey */
-    --color-studio-dark: #2E2B29;        /* Deep surface / dark charcoal */
-    --color-studio-grey: #5F5652;        /* Dark warm grey */
-    --color-studio-walnut-deep: #4E3320; /* Deep walnut */
-    --color-studio-walnut: #5D4737;      /* Medium walnut */
-    --color-studio-wood: #896B54;        /* Natural wood slats */
-    --color-studio-stone: #A18773;       /* Warm stone / beige */
-    --color-studio-amber: #D0AD87;       /* Warm lighting / accent */
-    --color-studio-amber-deep: #8D4C14;  /* Deep warm amber */
-    
+    --color-studio-bg: #716b66; /* Primary concrete / warm grey */
+    --color-studio-dark: #2e2b29; /* Deep surface / dark charcoal */
+    --color-studio-grey: #5f5652; /* Dark warm grey */
+    --color-studio-walnut-deep: #4e3320; /* Deep walnut */
+    --color-studio-walnut: #5d4737; /* Medium walnut */
+    --color-studio-wood: #896b54; /* Natural wood slats */
+    --color-studio-stone: #a18773; /* Warm stone / beige */
+    --color-studio-amber: #d0ad87; /* Warm lighting / accent */
+    --color-studio-amber-deep: #8d4c14; /* Deep warm amber */
+
     /* Editorial Typography Colors */
-    --color-text-primary: #F7F5F2;       /* Crisp warm off-white */
-    --color-text-secondary: #D9D2CB;     /* Soft warm stone */
-    --color-text-muted: #A39B94;         /* Understated muted */
-    
-    --font-heading: "Instrument Serif", Georgia, serif;
-    --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --color-text-primary: #f7f5f2; /* Crisp warm off-white */
+    --color-text-secondary: #d9d2cb; /* Soft warm stone */
+    --color-text-muted: #a39b94; /* Understated muted */
+
+    --font-heading: "Boska", Georgia, serif;
+    --font-subheading: "Gambarino", Georgia, serif;
+    --font-body:
+      "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
   }
 
   html {
@@ -50,8 +54,9 @@
     overflow-x: hidden;
   }
 
-  /* Headings with Instrument Serif */
-  h1, h2, h3, h4, h5, h6, .font-editorial {
+  /* Primary Display Headings (h1 & h2): Boska */
+  h1,
+  h2 {
     font-family: var(--font-heading);
     color: var(--color-text-primary);
     font-weight: 400;
@@ -59,20 +64,31 @@
     line-height: 1.02;
   }
 
+  /* Sub-headings (h3, h4, h5, h6): Gambarino */
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-subheading);
+    color: var(--color-text-primary);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
   /* Custom Scrollbar styled for the architectural palette */
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #1C1A19;
+    background: #1c1a19;
   }
   ::-webkit-scrollbar-thumb {
-    background: #5D4737;
+    background: #5d4737;
     border-radius: 4px;
     border: 1px solid rgba(208, 173, 135, 0.2);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #896B54;
+    background: #896b54;
   }
 }
 
@@ -82,7 +98,9 @@
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(208, 173, 135, 0.22);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 16px 40px -10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .navbar-pill-scrolled {
@@ -90,7 +108,9 @@
   backdrop-filter: blur(30px) saturate(190%);
   -webkit-backdrop-filter: blur(30px) saturate(190%);
   border: 1px solid rgba(208, 173, 135, 0.3);
-  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 50px -12px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 /* Architectural Utilities & Textures */
@@ -171,43 +191,85 @@
 }
 
 .ambient-glow-amber {
-  background: radial-gradient(circle, rgba(208, 173, 135, 0.26) 0%, rgba(141, 76, 20, 0.10) 50%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(208, 173, 135, 0.26) 0%,
+    rgba(141, 76, 20, 0.1) 50%,
+    transparent 70%
+  );
 }
 
 .ambient-glow-deep {
-  background: radial-gradient(circle, rgba(141, 76, 20, 0.24) 0%, rgba(78, 51, 32, 0.12) 55%, transparent 75%);
+  background: radial-gradient(
+    circle,
+    rgba(141, 76, 20, 0.24) 0%,
+    rgba(78, 51, 32, 0.12) 55%,
+    transparent 75%
+  );
 }
 
 /* Seamless Continuous Backgrounds for Studio -> Works */
 .bg-studio-concrete-ambient {
-  background: 
-    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(208, 173, 135, 0.32) 0%, rgba(141, 76, 20, 0.14) 40%, transparent 75%),
-    radial-gradient(circle at 85% 50%, rgba(208, 173, 135, 0.16) 0%, transparent 55%),
-    linear-gradient(180deg, #5A544F 0%, #4D4743 45%, #24211F 100%);
+  background:
+    radial-gradient(
+      ellipse 90% 55% at 50% -10%,
+      rgba(208, 173, 135, 0.32) 0%,
+      rgba(141, 76, 20, 0.14) 40%,
+      transparent 75%
+    ),
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(208, 173, 135, 0.16) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, #5a544f 0%, #4d4743 45%, #24211f 100%);
 }
 
 .bg-studio-grey-ambient {
-  background: 
-    radial-gradient(circle at 50% 30%, rgba(208, 173, 135, 0.18) 0%, rgba(141, 76, 20, 0.08) 50%, transparent 75%),
-    radial-gradient(circle at 12% 65%, rgba(208, 173, 135, 0.14) 0%, transparent 55%),
-    radial-gradient(circle at 90% 85%, rgba(141, 76, 20, 0.12) 0%, transparent 55%),
-    linear-gradient(180deg, #24211F 0%, #2A2624 40%, #1F1C1A 100%);
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(208, 173, 135, 0.18) 0%,
+      rgba(141, 76, 20, 0.08) 50%,
+      transparent 75%
+    ),
+    radial-gradient(
+      circle at 12% 65%,
+      rgba(208, 173, 135, 0.14) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(141, 76, 20, 0.12) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, #24211f 0%, #2a2624 40%, #1f1c1a 100%);
 }
 
 /* Feathered Seam Blenders for Flawless Section Transitions */
 .seam-blend-bottom {
-  background: linear-gradient(180deg, transparent 0%, rgba(36, 33, 31, 0.6) 50%, #24211F 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(36, 33, 31, 0.6) 50%,
+    #24211f 100%
+  );
 }
 
 .seam-blend-top {
-  background: linear-gradient(180deg, #24211F 0%, rgba(36, 33, 31, 0.6) 50%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    #24211f 0%,
+    rgba(36, 33, 31, 0.6) 50%,
+    transparent 100%
+  );
 }
 
 /* Interactive CTA styles */
 .btn-studio-primary {
   position: relative;
-  background: linear-gradient(135deg, #D0AD87 0%, #B8926A 100%);
-  color: #1C1A19;
+  background: linear-gradient(135deg, #d0ad87 0%, #b8926a 100%);
+  color: #1c1a19;
   font-family: var(--font-body);
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -215,21 +277,23 @@
   font-size: 0.75rem;
   padding: 0.75rem 1.8rem;
   border-radius: 9999px;
-  box-shadow: 0 4px 20px -2px rgba(208, 173, 135, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 4px 20px -2px rgba(208, 173, 135, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
 
 .btn-studio-primary:hover {
-  background: linear-gradient(135deg, #F7F5F2 0%, #D0AD87 100%);
-  color: #1C1A19;
+  background: linear-gradient(135deg, #f7f5f2 0%, #d0ad87 100%);
+  color: #1c1a19;
   box-shadow: 0 8px 30px rgba(208, 173, 135, 0.5);
   transform: translateY(-1.5px) scale(1.02);
 }
 
 .btn-studio-secondary {
   background-color: rgba(38, 35, 33, 0.65);
-  color: #F7F5F2;
+  color: #f7f5f2;
   font-family: var(--font-body);
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -247,8 +311,49 @@
 .btn-studio-secondary:hover {
   border-color: rgba(208, 173, 135, 0.7);
   background-color: rgba(38, 35, 33, 0.9);
-  color: #D0AD87;
+  color: #d0ad87;
   transform: translateY(-1.5px) scale(1.02);
+}
+
+/* Continuous Marquee Carousel for Testimonials */
+@keyframes continuousScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-continuous {
+  display: flex;
+  width: max-content;
+  animation: continuousScroll 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-continuous:hover,
+.animate-marquee-continuous:focus-within,
+.marquee-paused {
+  animation-play-state: paused !important;
+}
+
+/* Edge Fade Gradient Mask for Marquee Carousel */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
 }
 
 /* Subtle hairline dividers */

@@ -1,29 +1,36 @@
 export function Studio() {
   const architecturalElements = [
     {
-      title: 'Warm Grey Concrete Walls',
-      description: 'Tactile, acoustic calm that shuts out city noise for deep creative concentration.',
-      material: 'Concrete & Plaster',
+      title: "Warm Grey Concrete Walls",
+      description:
+        "Acoustic calm and raw concrete geometry shutting out city noise.",
+      material: "Concrete & Plaster",
     },
     {
-      title: 'Dark Walnut Slats & Timber',
-      description: 'Structural wood panels providing architectural rhythm and grounded warmth.',
-      material: 'Natural Walnut',
+      title: "Dark Walnut Slats & Timber",
+      description:
+        "Fluted architectural wood panels grounding the space in natural warmth.",
+      material: "Natural Walnut",
     },
     {
-      title: 'Rough Natural Stone',
-      description: 'Earthy raw stone textures grounding the studio in timeless physical presence.',
-      material: 'Raw Stone',
+      title: "Rough Natural Stone",
+      description:
+        "Monolithic raw stone textures grounding the studio in physical presence.",
+      material: "Raw Stone",
     },
     {
-      title: 'Amber Architectural Glow',
-      description: 'Warm, low-temperature indirect illumination engineered to relax clients during long sessions.',
-      material: 'Warm Ambient Light',
+      title: "Amber Architectural Glow",
+      description:
+        "Low-glare 2700K indirect lighting designed for calm, unhurried focus.",
+      material: "Warm Light",
     },
   ];
 
   return (
-    <section className="relative w-full pt-16 pb-24 sm:pt-20 sm:pb-28 md:pt-32 md:pb-36 px-4 sm:px-6 lg:px-8 bg-studio-concrete-ambient text-[#F7F5F2] overflow-hidden" id="studio">
+    <section
+      className="relative w-full pt-16 pb-24 sm:pt-20 sm:pb-28 md:pt-32 md:pb-36 px-4 sm:px-6 lg:px-8 bg-studio-concrete-ambient text-[#F7F5F2] overflow-hidden"
+      id="studio"
+    >
       {/* Dynamic Warm Studio Spotlights & Slat Atmosphere */}
       <div className="absolute inset-0 warm-spotlight-top pointer-events-none" />
       <div className="absolute inset-0 warm-spotlight-side-left pointer-events-none" />
@@ -47,7 +54,8 @@ export function Studio() {
             </h2>
           </div>
           <p className="max-w-md text-xs sm:text-sm md:text-base text-[#F7F5F2]/90 font-light leading-relaxed">
-            Designed as a tangible extension of the craft—minimal, tactile, and illuminated with warm amber serenity.
+            Designed as a tangible extension of the craft—minimal, tactile, and
+            illuminated with warm amber serenity.
           </p>
         </div>
 
@@ -78,7 +86,8 @@ export function Studio() {
                     Architectural Space Design
                   </p>
                   <p className="text-[11px] sm:text-xs text-[#D9D2CB] font-light mt-0.5">
-                    Concrete walls • Rough stone • Dark walnut wood • Hospital sterilization
+                    Concrete walls • Rough stone • Dark walnut wood • Hospital
+                    sterilization
                   </p>
                 </div>
                 <a
@@ -103,7 +112,7 @@ export function Studio() {
                   className="p-4 sm:p-5 rounded-xl bg-[#2E2B29]/75 backdrop-blur-md border border-[#A18773]/25 hover:border-[#D0AD87]/40 transition-colors"
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-base sm:text-lg text-[#F7F5F2] font-medium" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+                    <h3 className="text-base sm:text-lg text-[#F7F5F2]">
                       {elem.title}
                     </h3>
                     <span className="text-[9px] sm:text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-[#5D4737] text-[#D0AD87] border border-[#A18773]/30">
@@ -123,14 +132,22 @@ export function Studio() {
                 <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#D0AD87] font-semibold">
                   Visiting Protocol
                 </span>
-                <span className="text-[10px] sm:text-xs text-[#A18773]">Private Sessions</span>
+                <span className="text-[10px] sm:text-xs text-[#A18773]">
+                  Private Sessions
+                </span>
               </div>
               <p className="text-xs text-[#D9D2CB] leading-relaxed mb-3 sm:mb-4 font-light">
-                To guarantee zero distractions and uncompromising focus, all consultations and tattooing sessions are scheduled by private appointment.
+                To guarantee zero distractions and uncompromising focus, all
+                consultations and tattooing sessions are scheduled by private
+                appointment.
               </p>
               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
                 <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="btn-studio-primary text-xs py-2 px-4 cursor-pointer"
                 >
                   Reserve Studio Time

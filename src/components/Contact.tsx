@@ -1,26 +1,28 @@
-import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
+import { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    concept: '',
-    placement: '',
-    size: '',
+    name: "",
+    email: "",
+    phone: "",
+    concept: "",
+    placement: "",
+    size: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   // Initialize email.js
   useEffect(() => {
-    emailjs.init('rWgfx85P7wMrGBde0');
+    emailjs.init("rWgfx85P7wMrGBde0");
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -31,40 +33,53 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
       // Send email using email.js preserving exact service, template and payload
       await emailjs.send(
-        'service_ty5v2vj',
-        'template_xxkzye8',
+        "service_ty5v2vj",
+        "template_xxkzye8",
         {
-          to_email: 'satwinderamloh4@gmail.com',
+          to_email: "satwinderamloh4@gmail.com",
           from_name: formData.name,
           from_email: formData.email,
-          phone: formData.phone || 'Not provided',
+          phone: formData.phone || "Not provided",
           concept: formData.concept,
           placement: formData.placement,
           size: formData.size,
           reply_to: formData.email,
         },
-        'rWgfx85P7wMrGBde0'
+        "rWgfx85P7wMrGBde0",
       );
 
       setSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', concept: '', placement: '', size: '' });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        concept: "",
+        placement: "",
+        size: "",
+      });
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'Failed to send message. Please try again.';
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again.";
       setError(errorMessage);
-      console.error('Email send error:', err);
+      console.error("Email send error:", err);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-studio-concrete-ambient text-[#F7F5F2] overflow-hidden" id="contact">
+    <section
+      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-studio-concrete-ambient text-[#F7F5F2] overflow-hidden"
+      id="contact"
+    >
       {/* Warm Ambient Studio Illumination */}
       <div className="absolute inset-0 warm-spotlight-top pointer-events-none" />
       <div className="absolute inset-0 warm-spotlight-side-left pointer-events-none" />
@@ -86,7 +101,8 @@ export function Contact() {
             </h2>
           </div>
           <p className="max-w-md text-xs sm:text-sm md:text-base text-[#F7F5F2]/90 font-light leading-relaxed">
-            Begin the dialogue. Share your concept, placement ideas, and timeline. Satwinder will review and respond within 24–48 hours.
+            Begin the dialogue. Share your concept, placement ideas, and
+            timeline. Satwinder will review and respond within 24–48 hours.
           </p>
         </div>
 
@@ -95,11 +111,12 @@ export function Contact() {
           {/* Left Column: Direct Communication & Studio Details */}
           <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             <div className="p-5 sm:p-7 md:p-8 rounded-2xl bg-[#2E2B29]/80 backdrop-blur-md border border-[#A18773]/25">
-              <h3 className="text-xl sm:text-2xl text-[#F7F5F2] mb-2 sm:mb-3" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+              <h3 className="text-xl sm:text-2xl text-[#F7F5F2] mb-2 sm:mb-3">
                 Studio Direct Channels
               </h3>
               <p className="text-xs sm:text-sm text-[#D9D2CB] font-light leading-relaxed mb-5 sm:mb-6">
-                Prefer immediate correspondence? Reach out via WhatsApp or explore our latest works on Instagram.
+                Prefer immediate correspondence? Reach out via WhatsApp or
+                explore our latest works on Instagram.
               </p>
 
               <div className="space-y-3 sm:space-y-4">
@@ -111,10 +128,16 @@ export function Contact() {
                   className="flex items-center justify-between p-3.5 sm:p-4 rounded-xl bg-[#5F5652]/30 hover:bg-[#5F5652]/50 border border-[#A18773]/20 transition-all duration-200 group"
                 >
                   <div className="flex items-center gap-3 sm:gap-3.5">
-                    <span className="text-lg sm:text-xl text-[#D0AD87]">💬</span>
+                    <span className="text-lg sm:text-xl text-[#D0AD87]">
+                      💬
+                    </span>
                     <div>
-                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">WhatsApp Direct</p>
-                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2]">+91 887 268 4463</p>
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">
+                        WhatsApp Direct
+                      </p>
+                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2]">
+                        +91 887 268 4463
+                      </p>
                     </div>
                   </div>
                   <span className="text-xs text-[#D0AD87] group-hover:translate-x-1 transition-transform">
@@ -128,10 +151,16 @@ export function Contact() {
                   className="flex items-center justify-between p-3.5 sm:p-4 rounded-xl bg-[#5F5652]/30 hover:bg-[#5F5652]/50 border border-[#A18773]/20 transition-all duration-200 group"
                 >
                   <div className="flex items-center gap-3 sm:gap-3.5">
-                    <span className="text-lg sm:text-xl text-[#D0AD87]">📞</span>
+                    <span className="text-lg sm:text-xl text-[#D0AD87]">
+                      📞
+                    </span>
                     <div>
-                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">Phone Call</p>
-                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2]">+91 887 268 4463</p>
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">
+                        Phone Call
+                      </p>
+                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2]">
+                        +91 887 268 4463
+                      </p>
                     </div>
                   </div>
                   <span className="text-xs text-[#D0AD87] group-hover:translate-x-1 transition-transform">
@@ -145,10 +174,16 @@ export function Contact() {
                   className="flex items-center justify-between p-3.5 sm:p-4 rounded-xl bg-[#5F5652]/30 hover:bg-[#5F5652]/50 border border-[#A18773]/20 transition-all duration-200 group"
                 >
                   <div className="flex items-center gap-3 sm:gap-3.5">
-                    <span className="text-lg sm:text-xl text-[#D0AD87]">✉️</span>
+                    <span className="text-lg sm:text-xl text-[#D0AD87]">
+                      ✉️
+                    </span>
                     <div>
-                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">Official Email</p>
-                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2] truncate max-w-[190px] xs:max-w-none">satwinderamloh4@gmail.com</p>
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">
+                        Official Email
+                      </p>
+                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2] truncate max-w-[190px] xs:max-w-none">
+                        satwinderamloh4@gmail.com
+                      </p>
                     </div>
                   </div>
                   <span className="text-xs text-[#D0AD87] group-hover:translate-x-1 transition-transform">
@@ -166,8 +201,12 @@ export function Contact() {
                   <div className="flex items-center gap-3 sm:gap-3.5">
                     <span className="text-lg sm:text-xl text-[#D0AD87]">✦</span>
                     <div>
-                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">Instagram Portfolio</p>
-                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2]">@sam_tattooz_</p>
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#A18773]">
+                        Instagram Portfolio
+                      </p>
+                      <p className="text-xs sm:text-sm font-semibold text-[#F7F5F2]">
+                        @sam_tattooz_
+                      </p>
                     </div>
                   </div>
                   <span className="text-xs text-[#D0AD87] group-hover:translate-x-1 transition-transform">
@@ -183,13 +222,17 @@ export function Contact() {
                 <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#D0AD87] font-semibold">
                   Atelier Location
                 </span>
-                <span className="text-[10px] sm:text-xs text-[#A18773]">Private Studio</span>
+                <span className="text-[10px] sm:text-xs text-[#A18773]">
+                  Private Studio
+                </span>
               </div>
               <p className="text-sm sm:text-base text-[#F7F5F2] font-medium mb-1">
                 Bengaluru, Karnataka, India
               </p>
               <p className="text-xs text-[#D9D2CB] font-light leading-relaxed mb-3 sm:mb-4">
-                Exact studio coordinates and arrival instructions are shared upon confirmation of your appointment to maintain sanctuary privacy.
+                Exact studio coordinates and arrival instructions are shared
+                upon confirmation of your appointment to maintain sanctuary
+                privacy.
               </p>
               <a
                 href="https://maps.google.com/?q=Sam+Tattooz+Bengaluru"
@@ -211,21 +254,27 @@ export function Contact() {
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#5D4737] border border-[#D0AD87] text-[#D0AD87] flex items-center justify-center text-2xl sm:text-3xl mx-auto">
                     ✓
                   </div>
-                  <h3 className="text-2xl sm:text-3xl text-[#F7F5F2]" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl text-[#F7F5F2]">
                     Consultation Request Received
                   </h3>
                   <p className="text-xs sm:text-sm md:text-base text-[#D9D2CB] font-light max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out. Satwinder will review your concept and reach out via email or phone within 24–48 hours to schedule your session.
+                    Thank you for reaching out. Satwinder will review your
+                    concept and reach out via email or phone within 24–48 hours
+                    to schedule your session.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 sm:space-y-6"
+                >
                   <div>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl text-[#F7F5F2]" style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl text-[#F7F5F2]">
                       Session Request Form
                     </h3>
                     <p className="text-[11px] sm:text-xs md:text-sm text-[#A18773] mt-0.5 sm:mt-1 font-light">
-                      Please provide details regarding your concept, sizing, and placement.
+                      Please provide details regarding your concept, sizing, and
+                      placement.
                     </p>
                   </div>
 
@@ -238,7 +287,10 @@ export function Contact() {
                   {/* Name and Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                      <label htmlFor="name" className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2"
+                      >
                         Your Name *
                       </label>
                       <input
@@ -254,7 +306,10 @@ export function Contact() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -272,7 +327,10 @@ export function Contact() {
 
                   {/* Phone Number */}
                   <div>
-                    <label htmlFor="phone" className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2"
+                    >
                       Phone Number / WhatsApp
                     </label>
                     <input
@@ -288,7 +346,10 @@ export function Contact() {
 
                   {/* Tattoo Concept */}
                   <div>
-                    <label htmlFor="concept" className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2">
+                    <label
+                      htmlFor="concept"
+                      className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2"
+                    >
                       Tattoo Concept & Meaning *
                     </label>
                     <textarea
@@ -306,7 +367,10 @@ export function Contact() {
                   {/* Placement & Size */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="placement" className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2">
+                      <label
+                        htmlFor="placement"
+                        className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2"
+                      >
                         Placement on Body *
                       </label>
                       <input
@@ -322,7 +386,10 @@ export function Contact() {
                     </div>
 
                     <div>
-                      <label htmlFor="size" className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2">
+                      <label
+                        htmlFor="size"
+                        className="block text-xs uppercase tracking-wider text-[#D0AD87] font-medium mb-2"
+                      >
                         Approximate Size *
                       </label>
                       <input

@@ -69,10 +69,7 @@ export function Header() {
             </div>
 
             <div className="flex flex-col">
-              <span
-                className="text-lg sm:text-xl md:text-2xl tracking-tight leading-none text-[#F7F5F2] group-hover:text-[#D0AD87] transition-colors whitespace-nowrap"
-                style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}
-              >
+              <span className="text-base sm:text-lg md:text-xl tracking-tight leading-none text-[#F7F5F2] group-hover:text-[#D0AD87] transition-colors whitespace-nowrap font-bold">
                 Sam Tattooz
               </span>
               <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-[#D0AD87] font-semibold mt-0.5 hidden sm:block">
@@ -144,10 +141,7 @@ export function Header() {
         <div className="flex flex-col gap-4">
           {/* Header in Drawer */}
           <div className="flex justify-between items-center pb-3 border-b border-[#A18773]/20">
-            <span
-              className="text-2xl text-[#F7F5F2]"
-              style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}
-            >
+            <span className="text-xl text-[#F7F5F2] font-semibold">
               Navigation
             </span>
             <div className="flex items-center gap-2.5">
