@@ -1,6 +1,9 @@
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 bg-[#1C1A19] text-[#F7F5F2]" id="#">
+    <section
+      className="relative w-full min-h-[90vh] flex items-center overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 bg-[#1C1A19] text-[#F7F5F2]"
+      id="#"
+    >
       {/* 1. Deep Atmospheric Studio Background (Translating the physical studio interior) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Studio Interior Image with Chiaroscuro Mask */}
@@ -25,18 +28,9 @@ export function Hero() {
         <div className="absolute inset-0 studio-slats-overlay opacity-30" />
       </div>
 
-      {/* 2. Architectural Blueprint Coordinates & Grid Accents */}
-      <div className="absolute top-24 left-8 text-[10px] uppercase tracking-[0.28em] text-[#A18773]/60 font-mono hidden md:block select-none pointer-events-none">
-        [ 12.9716° N, 77.5946° E ] • BENGALURU
-      </div>
-      <div className="absolute top-24 right-8 text-[10px] uppercase tracking-[0.28em] text-[#D0AD87]/70 font-mono hidden md:block select-none pointer-events-none">
-        + ATELIER SANCTUARY
-      </div>
-
       {/* 3. Main Hero Editorial Content */}
       <div className="relative max-w-7xl mx-auto z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-14 items-center">
-          
           {/* Left Column: Bold Typography & Architectural Narrative */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Studio Identification Tag */}
@@ -50,20 +44,28 @@ export function Hero() {
             {/* Giant Editorial Headline */}
             <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#F7F5F2] leading-[0.96] mb-5 sm:mb-6">
               Bold Lines. <br />
-              <span className="italic font-light text-[#D0AD87] tracking-normal">Built to Last.</span>
+              <span className="italic font-light text-[#D0AD87] tracking-normal">
+                Built to Last.
+              </span>
             </h1>
 
             {/* Editorial Lead */}
             <div className="max-w-xl mb-6 sm:mb-8">
               <p className="text-sm xs:text-base sm:text-lg text-[#D9D2CB] font-light leading-relaxed">
-                Bespoke tattoo art by Satwinder Singh in Bengaluru. Anatomical flow, hospital-grade precision, and custom compositions engineered to endure.
+                Bespoke tattoo art by Satwinder Singh in Bengaluru. Anatomical
+                flow, hospital-grade precision, and custom compositions
+                engineered to endure.
               </p>
             </div>
 
             {/* Call To Actions */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 mb-8 sm:mb-12">
               <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="btn-studio-primary cursor-pointer flex items-center justify-center gap-2 text-xs py-3 px-5 sm:py-3.5 sm:px-7 grow sm:grow-0"
               >
                 <span>Book a Session</span>
@@ -71,7 +73,11 @@ export function Hero() {
               </button>
 
               <button
-                onClick={() => document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("works")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="btn-studio-secondary cursor-pointer flex items-center justify-center gap-2 text-xs py-3 px-5 sm:py-3.5 sm:px-7 grow sm:grow-0"
               >
                 <span>Explore the Archive</span>
@@ -122,7 +128,6 @@ export function Hero() {
           {/* Right Column: Layered Museum-Grade Image Presentation */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
-              
               {/* Backlit Ambient Aura behind the visual frame */}
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-[#D0AD87]/20 via-[#8D4C14]/15 to-transparent blur-2xl pointer-events-none" />
 
@@ -168,7 +173,6 @@ export function Hero() {
               <div className="absolute -bottom-2.5 -left-2.5 sm:-bottom-3 sm:-left-3 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-[#D0AD87]/80 pointer-events-none" />
             </div>
           </div>
-
         </div>
       </div>
     </section>
