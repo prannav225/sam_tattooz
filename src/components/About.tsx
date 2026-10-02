@@ -133,7 +133,7 @@ export function About() {
                 return (
                   <div
                     key={item.title}
-                    className="p-3.5 sm:p-4 rounded-xl bg-[#2E2B29]/90 border border-[#A18773]/20 hover:border-[#D0AD87]/40 transition-colors flex items-start gap-3"
+                    className="p-3.5 sm:p-4 rounded-xl glass-smoked border border-[#A18773]/25 hover:border-[#D0AD87]/50 backdrop-blur-md transition-all flex items-start gap-3"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#5D4737]/60 border border-[#D0AD87]/30 flex items-center justify-center shrink-0 text-[#D0AD87] mt-0.5">
                       <IconComponent className="w-4 h-4" />

@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { X, ChevronDown, ChevronUp } from "lucide-react";
 
 interface TattooWork {
   id: number;
@@ -177,12 +178,12 @@ const PORTFOLIO_ITEMS: TattooWork[] = [
 ];
 
 const CATEGORIES = ["All", "Fine-Line", "Black & Grey", "Custom Realism"];
-const MOBILE_PREVIEW_LIMIT = 6;
+const PREVIEW_LIMIT = 6;
 
 export function Works() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedImage, setSelectedImage] = useState<TattooWork | null>(null);
-  const [showAllMobile, setShowAllMobile] = useState<boolean>(false);
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const filteredPortfolio = useMemo(() => {
     if (activeCategory === "All") return PORTFOLIO_ITEMS;
@@ -191,7 +192,16 @@ export function Works() {
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
-    setShowAllMobile(false);
+    setShowAll(false);
+  };
+
+  const handleToggleExpand = () => {
+    if (showAll) {
+      setShowAll(false);
+      document.getElementById("works")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      setShowAll(true);
+    }
   };
 
   return (
@@ -243,16 +253,16 @@ export function Works() {
         {/* Editorial Gallery Grid */}
         <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 auto-rows-[300px] xs:auto-rows-[330px] sm:auto-rows-[350px]">
           {filteredPortfolio.map((item, index) => {
-            const isHiddenOnMobile =
-              !showAllMobile && index >= MOBILE_PREVIEW_LIMIT;
+            const isHidden = !showAll && index >= PREVIEW_LIMIT;
+            if (isHidden) return null;
 
             return (
               <div
                 key={item.id}
                 onClick={() => setSelectedImage(item)}
-                className={`group relative rounded-2xl overflow-hidden border border-[#A18773]/25 bg-[#2E2B29] shadow-lg cursor-pointer transition-all duration-500 hover:border-[#D0AD87]/60 hover:shadow-2xl hover:shadow-black/50 ${
-                  isHiddenOnMobile ? "hidden sm:block" : "block"
-                } ${item.isFeatured && activeCategory === "All" ? "xs:col-span-2 xs:row-span-2" : ""}`}
+                className={`group relative rounded-2xl overflow-hidden border border-[#A18773]/25 bg-[#2E2B29] shadow-lg cursor-pointer transition-all duration-500 hover:border-[#D0AD87]/60 hover:shadow-2xl hover:shadow-black/50 block ${
+                  item.isFeatured && activeCategory === "All" ? "xs:col-span-2 xs:row-span-2" : ""
+                }`}
               >
                 {/* Tattoo Image */}
                 <img
@@ -289,21 +299,23 @@ export function Works() {
           })}
         </div>
 
-        {/* Mobile View More / Collapse Button (Shown only when there are more than 6 items on mobile) */}
-        {filteredPortfolio.length > MOBILE_PREVIEW_LIMIT && (
-          <div className="sm:hidden mt-6 flex justify-center">
+        {/* View More / Collapse Button (Shown across all screen sizes) */}
+        {filteredPortfolio.length > PREVIEW_LIMIT && (
+          <div className="mt-8 sm:mt-12 flex justify-center">
             <button
-              onClick={() => setShowAllMobile(!showAllMobile)}
-              className="btn-studio-secondary w-full py-3.5 text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              onClick={handleToggleExpand}
+              className="btn-studio-secondary w-full sm:w-auto px-8 py-3.5 sm:px-10 sm:py-4 text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2.5 cursor-pointer shadow-xl hover:scale-102 transition-all"
             >
               <span>
-                {showAllMobile
-                  ? "Collapse Gallery"
-                  : `View More Works (+${filteredPortfolio.length - MOBILE_PREVIEW_LIMIT})`}
+                {showAll
+                  ? "Collapse Works Archive"
+                  : `View More Works (+${filteredPortfolio.length - PREVIEW_LIMIT})`}
               </span>
-              <span className="text-sm text-[#D0AD87]">
-                {showAllMobile ? "↑" : "↓"}
-              </span>
+              {showAll ? (
+                <ChevronUp className="w-4 h-4 text-[#D0AD87]" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-[#D0AD87]" />
+              )}
             </button>
           </div>
         )}
@@ -347,10 +359,10 @@ export function Works() {
             {/* Close Button */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2E2B29]/90 border border-[#A18773]/40 text-[#F7F5F2] hover:text-[#D0AD87] flex items-center justify-center text-lg transition-colors cursor-pointer"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2E2B29]/90 border border-[#A18773]/40 text-[#F7F5F2] hover:text-[#D0AD87] flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Close Preview"
             >
-              ✕
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* High-res Image View */}
