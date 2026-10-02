@@ -3,56 +3,48 @@ export function Testimonials() {
     {
       id: 1,
       name: 'Manu Alagawadi',
-      avatarId: '1',
-      stars: 5,
-      review: 'Sam is an incredible tattoo artist! The design was exactly what I imagined, and the execution was flawless. Highly recommended!',
+      session: 'Custom Fine-Line Concept',
+      review:
+        'Sam is an incredible tattoo artist! The design was exactly what I imagined, and the execution was flawless. Calm environment, meticulous hygiene, and exceptional linework. Highly recommended!',
     },
     {
       id: 2,
       name: 'Usha Menon',
-      avatarId: '2',
-      stars: 5,
-      review: 'Professional, creative, and talented. Sam made me feel comfortable throughout the process and delivered stunning results.',
+      session: 'Botanical Flow Piece',
+      review:
+        'Professional, creative, and remarkably patient. Sam made me feel entirely comfortable throughout the session and delivered stunning, graceful results that move perfectly with my body.',
     },
     {
       id: 3,
       name: 'Srikanth G',
-      avatarId: '3',
-      stars: 5,
-      review: 'Best tattoo experience ever. Sam listened to my ideas and brought them to life beautifully. Worth every penny!',
+      session: 'Black & Grey Forearm Wrap',
+      review:
+        'Best tattoo experience in Bengaluru. Sam listened to my ideas, refined the anatomy placement, and brought the entire concept to life with razor-sharp precision. Worth every penny.',
     },
     {
       id: 4,
       name: 'Shobhika Srinivasan',
-      avatarId: '4',
-      stars: 5,
-      review: 'Absolutely amazing work! Sam has a unique artistic vision and technical skill. My tattoo is a masterpiece.',
+      session: 'Intricate Sacred Design',
+      review:
+        'Absolutely world-class work. Sam has a rare balance of artistic vision and surgical technical skill. The healed lines are as crisp as day one. My piece is truly a permanent masterpiece.',
     },
     {
       id: 5,
       name: 'Yashu',
-      avatarId: '5',
-      stars: 5,
-      review: 'Sam is passionate about his craft. The attention to detail and care shown made this an unforgettable experience.',
+      session: 'Custom Symbolic Piece',
+      review:
+        'Sam is deeply passionate about his craft. The attention to detail, sanitary discipline, and quiet care shown during the appointment made this an unforgettable and grounding experience.',
     },
     {
       id: 6,
       name: 'Pratheek Achar',
-      avatarId: '6',
-      stars: 5,
-      review: 'Outstanding talent and incredible customer service. My tattoo exceeded all expectations. Definitely coming back!',
+      session: 'Detailed Realism Concept',
+      review:
+        'Outstanding talent and unmatched hospitality. My tattoo exceeded all expectations in both healing and aesthetic depth. I will certainly be returning for future pieces.',
     },
   ];
 
-  const renderStars = (count: number) => {
-    return Array.from({ length: 5 }).map((_, i) => (
-      <span key={i} className={i < count ? 'text-yellow-400' : 'text-gray-300'}>
-        ★
-      </span>
-    ));
-  };
-
-  const getAvatarInitials = (name: string) => {
+  const getInitials = (name: string) => {
     return name
       .split(' ')
       .map((word) => word[0])
@@ -61,53 +53,70 @@ export function Testimonials() {
       .slice(0, 2);
   };
 
-  const getAvatarColor = (id: number) => {
-    const colors = ['bg-blue-500', 'bg-purple-500', 'bg-pink-500', 'bg-green-500', 'bg-orange-500', 'bg-red-500'];
-    return colors[id - 1] || 'bg-blue-500';
-  };
-
   return (
-    <section className="w-full py-16 md:py-24 px-4 md:px-8" id="testimonials">
-      <div className="max-w-7xl mx-auto">
-        {/* Centered Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl">
-            Testimonials
-          </h2>
+    <section className="relative w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#2E2B29] text-[#F7F5F2]" id="testimonials">
+      {/* Background Architectural Slats */}
+      <div className="absolute inset-0 studio-slats-overlay pointer-events-none opacity-40" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] ambient-glow-amber pointer-events-none opacity-40" />
+
+      <div className="relative max-w-7xl mx-auto z-10">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-[#A18773]/20 gap-6">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#D0AD87] mb-3 font-medium">
+              <span>✦</span>
+              <span>Client Words</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-[#F7F5F2]">
+              Collector Testimonials.
+            </h2>
+          </div>
+          <p className="max-w-md text-sm md:text-base text-[#D9D2CB] font-light leading-relaxed">
+            Honest reflections from clients who trusted Sam Tattooz with their vision, skin, and permanent stories.
+          </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {testimonials.map((testimonial) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {testimonials.map((t) => (
             <div
-              key={testimonial.id}
-              className="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden p-6 flex flex-col border border-gray-200"
+              key={t.id}
+              className="glass-smoked-card p-7 sm:p-8 rounded-2xl border border-[#A18773]/20 hover:border-[#D0AD87]/40 transition-all duration-300 flex flex-col justify-between group"
             >
-              {/* Photo - Avatar */}
-              <div className="mb-4 flex justify-center">
-                <div
-                  className={`w-20 h-20 rounded-full ${getAvatarColor(testimonial.id)} flex items-center justify-center shadow-md`}
-                >
-                  <span className="text-white text-2xl font-bold">
-                    {getAvatarInitials(testimonial.name)}
+              <div>
+                {/* Quotation Mark & Amber Stars */}
+                <div className="flex items-center justify-between mb-4">
+                  <span
+                    className="text-4xl sm:text-5xl leading-none text-[#D0AD87]/40 group-hover:text-[#D0AD87] transition-colors"
+                    style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}
+                  >
+                    “
                   </span>
+                  <div className="flex items-center gap-1 text-[#D0AD87] text-xs">
+                    {'★'.repeat(5)}
+                  </div>
+                </div>
+
+                {/* Review Text */}
+                <p className="text-sm md:text-base text-[#D9D2CB] font-light leading-relaxed mb-6 italic">
+                  "{t.review}"
+                </p>
+              </div>
+
+              {/* Client Info Footer */}
+              <div className="pt-4 border-t border-[#A18773]/20 flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-full bg-[#5D4737] border border-[#D0AD87]/30 flex items-center justify-center text-xs font-semibold text-[#D0AD87] tracking-wider shrink-0">
+                  {getInitials(t.name)}
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-[#F7F5F2]">
+                    {t.name}
+                  </h3>
+                  <p className="text-[11px] text-[#A18773] uppercase tracking-wider">
+                    {t.session}
+                  </p>
                 </div>
               </div>
-
-              {/* Name */}
-              <h3 className="text-lg md:text-xl font text-center mb-2">
-                {testimonial.name}
-              </h3>
-
-              {/* Stars */}
-              <div className="flex justify-center gap-1 mb-4">
-                {renderStars(testimonial.stars)}
-              </div>
-
-              {/* Review */}
-              <p className="text-base md:text-lg text-center leading-relaxed flex-grow">
-                "{testimonial.review}"
-              </p>
             </div>
           ))}
         </div>
